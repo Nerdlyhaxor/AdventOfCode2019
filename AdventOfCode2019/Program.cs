@@ -1,4 +1,5 @@
 ﻿using com.nerdlyhaxor.AdventOfCode.Logic;
+using com.nerdlyhaxor.AdventOfCode.Logic.Day02;
 using System;
 using System.IO;
 using System.Reflection;
@@ -18,14 +19,14 @@ namespace com.nerdlyhaxor.AdventOfCode
 
 			Console.WriteLine(path);
 
-			using (var reader = new StreamReader(path))
-			{
-				var line = reader.ReadLine();
+			using var reader = new StreamReader(path);
 
-				var results = new DayTwoPartOne(line).Solve();
+			var line = reader.ReadLine();
 
-				Console.WriteLine($"Results for Day Two Part One: {results[0]}");
-			}
+			var results = new DayTwoPartOne(line)
+				.Solve();
+
+			Console.WriteLine($"Results for Day Two Part One: {results[0]}");
 		}
 
 		public static void SolveDayTwoPartTwo()
@@ -34,24 +35,25 @@ namespace com.nerdlyhaxor.AdventOfCode
 
 			Console.WriteLine(path);
 
-			using (var reader = new StreamReader(path))
+			using var reader = new StreamReader(path);
+
+			var line = reader.ReadLine();
+
+			var dayTwoPartTwo = new DayTwoPartTwo(line);
+
+			for (var noun = 0; noun <= 99; noun++)
 			{
-				var line = reader.ReadLine();
+				for (var verb = 0; verb <= 99; verb++)
+				{
+					var answer = dayTwoPartTwo.Solve(noun, verb);
 
-				var dayTwoPartTwo = new DayTwoPartTwo(line);
-
-				for (var noun = 0; noun <= 99; noun++)
-					for (var verb = 0; verb <= 99; verb++)
+					if (answer == 19690720)
 					{
-						var answer = dayTwoPartTwo.Solve(noun, verb);
-
-						if (answer == 19690720)
-						{
-							Console.WriteLine($"Noun: {noun}");
-							Console.WriteLine($"Verb: {verb}");
-							break;
-						}
+						Console.WriteLine($"Noun: {noun}");
+						Console.WriteLine($"Verb: {verb}");
+						break;
 					}
+				}
 			}
 		}
 	}

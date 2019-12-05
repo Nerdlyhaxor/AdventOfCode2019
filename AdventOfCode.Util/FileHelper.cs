@@ -1,11 +1,23 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 
 namespace AdventOfCode.Util
 {
-	public class FileHelper
+	public static class FileHelper
 	{
-		private string fileName;
+		public static List<string> GetFileContent(string fileName)
+		{
+			var path = Path.Combine(Directory.GetCurrentDirectory(), fileName);
 
-
+			using (var reader = new StreamReader(path))
+			{
+				return reader
+					.ReadToEnd()
+					.Split(Environment.NewLine.ToCharArray())
+					.ToList();
+			}
+		}
 	}
 }

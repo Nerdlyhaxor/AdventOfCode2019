@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using com.nerdlyhaxor.AdventOfCode.Logic;
+using com.nerdlyhaxor.AdventOfCode.Logic.Day02;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace AdventOfCode.Tests

@@ -3,21 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace com.nerdlyhaxor.AdventOfCode.Logic
+namespace com.nerdlyhaxor.AdventOfCode.Logic.Day01
 {
 	public class DayOnePartTwo
 	{
-		private List<int> massValues;
+		private readonly List<int> massValues;
 
 		public DayOnePartTwo(List<int> massValues) =>
 			this.massValues = massValues;
 
-		private int calculateFuel(int mass) =>
+		private static int CalculateFuel(int mass) =>
 			(mass / 3) - 2;
 
 		public int Solve() =>
-			massValues
-				.Select(o => this.calculateFuel(o))
+			this.massValues
+				.Select(o => CalculateFuel(o))
 				.Sum(o => o);
 	}
 }

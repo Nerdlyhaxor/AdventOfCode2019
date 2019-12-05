@@ -5,17 +5,33 @@ using System.Text;
 
 namespace com.nerdlyhaxor.AdventOfCode.Logic
 {
-	public class DayTwoPartOne
+	public class DayTwoPartTwo
 	{
 		private readonly List<int> commands;
 
-		public DayTwoPartOne(string programText) =>
-			this.commands = programText
-				.Split(',')
-				.Select(o => Int32.Parse(o))
-				.ToList();
+		public DayTwoPartTwo(string programText) =>
+			this.commands = !string.IsNullOrEmpty(programText) ?
+				programText
+					.Split(',')
+					.Select(Int32.Parse)
+					.ToList() : new List<int>();
 
-		private List<int> ProcessCommands(List<int> commands)
+		public int Solve(int noun, int verb) =>
+			this.commands
+				.ReplaceNounAndVerb(noun, verb)
+				.ProcessCommands()[0];
+	}
+
+	internal static class DayTwoPartTwoHelperClass
+	{
+		internal static List<int> ReplaceNounAndVerb(this List<int> commands, int noun, int verb) =>
+			new List<int>(commands)
+			{
+				[1] = noun,
+				[2] = verb
+			};
+
+		internal static List<int> ProcessCommands(this List<int> commands)
 		{
 			var opCodeOffset = 0;
 
@@ -47,8 +63,5 @@ namespace com.nerdlyhaxor.AdventOfCode.Logic
 
 			return commands;
 		}
-
-		public List<int> Solve() =>
-			this.ProcessCommands(this.commands);
 	}
 }
