@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <RootNamespace>com.nerdlyhaxor.AdventOfCode.Logic</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AdventOfCode.Util\AdventOfCode.Util.csproj" />
+  </ItemGroup>
+
+</Project>

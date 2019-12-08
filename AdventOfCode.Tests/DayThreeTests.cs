@@ -77,7 +77,7 @@ namespace AdventOfCode.Tests
 				Assert.AreEqual(navInstructions[i], actualInstructions[i]);
 		}
 
-		[TestMethod]
+		[TestMethod, Ignore]
 		public void Navigate()
 		{
 			const string navString = "R1,U1";

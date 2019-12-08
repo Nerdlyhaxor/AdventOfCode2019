@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
-namespace AdventOfCode.Util
+namespace com.nerdlyhaxor.AdventOfCode.Util
 {
 	public static class FileHelper
 	{

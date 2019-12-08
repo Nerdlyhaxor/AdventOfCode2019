@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace AdventOfCode.Util
+namespace com.nerdlyhaxor.AdventOfCode.Util
 {
 	public static class StringExtensions
 	{

@@ -1,8 +1,10 @@
 ﻿using com.nerdlyhaxor.AdventOfCode.Logic;
 using com.nerdlyhaxor.AdventOfCode.Logic.Day02;
+using com.nerdlyhaxor.AdventOfCode.Logic.Day04;
+using com.nerdlyhaxor.AdventOfCode.Util;
 using System;
+using System.Collections.Generic;
 using System.IO;
-using System.Reflection;
 
 namespace com.nerdlyhaxor.AdventOfCode
 {
@@ -10,8 +12,25 @@ namespace com.nerdlyhaxor.AdventOfCode
 	{
 		public static void Main(/*string[] args*/)
 		{
-			SolveDayTwoPartTwo();
+			var puzzles = Init();
+
+			foreach(var puzzle in puzzles)
+			{
+				var fileName = GetFullFileName(puzzle.FileName);
+				var answer = puzzle.Solver.Solve(fileName);
+
+				Console.WriteLine($"Answer for Day {puzzle.Day} Part {puzzle.Part} is {answer}.");
+			}
 		}
+
+		public static List<AdventOfCodePuzzle> Init() =>
+				new List<AdventOfCodePuzzle>()
+				{
+					new AdventOfCodePuzzle() { Day = 4, Part = 1, Solver = new DayFourPartOne() }
+				};
+
+		public static string GetFullFileName(string fileName) =>
+			Path.Combine(Directory.GetCurrentDirectory(), $"InputFiles\\{fileName}");
 
 		public static void SolveDayTwoPartOne()
 		{

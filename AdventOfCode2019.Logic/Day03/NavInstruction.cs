@@ -1,4 +1,4 @@
-﻿using com.nerdlyhaxor.AdventOfCode.Util;
+﻿using AdventOfCode.Util;
 using System;
 using System.Collections.Generic;
 using System.Linq;
